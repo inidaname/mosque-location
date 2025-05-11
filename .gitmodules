@@ -1,0 +1,12 @@
+[submodule "APIGateway"]
+	path = api-gateway
+	url = https://github.com/inidaname/api-gateway
+[submodule "AuthService"]
+	path = auth-service
+	url = https://github.com/inidaname/auth-service
+[submodule "MosqueService"]
+	path = mosques-service
+	url = https://github.com/inidaname/mosques-service
+[submodule "Protos"]
+	path = protos
+	url = https://github.com/inidaname/protos
