@@ -5,7 +5,7 @@ package mosque;
 import "types.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package="github.com/inidaname/mosque/protos";
+option go_package="github.com/inidaname/mosque_location/protos";
 
 service MosqueService {
   rpc CreateMosque (CreateMosqueRequest) returns (CreateMosqueResponse);

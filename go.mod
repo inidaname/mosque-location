@@ -1,4 +1,4 @@
-module github.com/inidaname/mosque
+module github.com/inidaname/mosque_location
 
 go 1.24.3
 
