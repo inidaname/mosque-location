@@ -3,6 +3,7 @@ syntax = "proto3";
 package mosque;
 
 import "types.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package="github.com/inidaname/mosque/protos";
 
@@ -18,13 +19,13 @@ message CreateMosqueResponse {
 
 message ListMosquesRequest {
   // The parent resource name, for example, "shelves/shelf1"
-  string parent = 1;
+  // string parent = 1;
 
   // The maximum number of items to return.
-  int32 page_size = 2;
+  // int32 page_size = 2;
 
   // The next_page_token value returned from a previous List request, if any.
-  string page_token = 3;
+  // string page_token = 3;
 }
 
 message ListMosquesResponse {
@@ -33,7 +34,7 @@ message ListMosquesResponse {
   repeated types.Mosque mosques = 1;
 
   // Token to retrieve the next page of results, or empty if there are no more results in the list.
-  string next_page_token = 2;
+  // string next_page_token = 2;
 }
 
 message GetMosqueRequest {
@@ -44,8 +45,8 @@ message GetMosqueRequest {
 message CreateMosqueRequest {
   string name = 1;
   string address = 2;
-  string eid_time = 3;
-  string jummah_time = 4;
+  google.protobuf.Timestamp eid_time = 3;
+  google.protobuf.Timestamp jummah_time = 4;
   double lat = 5;
   double lng = 6;
 }
@@ -54,8 +55,8 @@ message UpdateMosqueRequest {
   string id = 1;
   string name = 2;
   string address = 3;
-  string eid_time = 4;
-  string jummah_time = 5;
+  google.protobuf.Timestamp eid_time = 4;
+  google.protobuf.Timestamp jummah_time = 5;
   double lat = 6;
   double lng = 7;
 }

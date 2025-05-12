@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package types;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package="github.com/inidaname/mosque/protos";
 
 message User {
@@ -17,8 +19,8 @@ message Mosque {
   string id = 1;
   string name = 2;
   string address = 3;
-  string eid_time = 4;
-  string jummah_time = 5;
+  google.protobuf.Timestamp eid_time = 4;
+  google.protobuf.Timestamp jummah_time = 5;
   double lat = 6;
   double lng = 7;
 }
