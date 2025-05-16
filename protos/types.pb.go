@@ -9,7 +9,6 @@ package protos
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -103,8 +102,8 @@ type Mosque struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Address       string                 `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
-	EidTime       *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
-	JummahTime    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
+	EidTime       string                 `protobuf:"bytes,4,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
+	JummahTime    string                 `protobuf:"bytes,5,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
 	Lat           float64                `protobuf:"fixed64,6,opt,name=lat,proto3" json:"lat,omitempty"`
 	Lng           float64                `protobuf:"fixed64,7,opt,name=lng,proto3" json:"lng,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -162,18 +161,18 @@ func (x *Mosque) GetAddress() string {
 	return ""
 }
 
-func (x *Mosque) GetEidTime() *timestamppb.Timestamp {
+func (x *Mosque) GetEidTime() string {
 	if x != nil {
 		return x.EidTime
 	}
-	return nil
+	return ""
 }
 
-func (x *Mosque) GetJummahTime() *timestamppb.Timestamp {
+func (x *Mosque) GetJummahTime() string {
 	if x != nil {
 		return x.JummahTime
 	}
-	return nil
+	return ""
 }
 
 func (x *Mosque) GetLat() float64 {
@@ -194,22 +193,22 @@ var File_types_proto protoreflect.FileDescriptor
 
 const file_types_proto_rawDesc = "" +
 	"\n" +
-	"\vtypes.proto\x12\x05types\x1a\x1fgoogle/protobuf/timestamp.proto\"{\n" +
+	"\vtypes.proto\x12\x05types\"{\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12\x14\n" +
 	"\x05phone\x18\x04 \x01(\tR\x05phone\x12\x1b\n" +
-	"\tfull_name\x18\x05 \x01(\tR\bfullName\"\xde\x01\n" +
+	"\tfull_name\x18\x05 \x01(\tR\bfullName\"\xa6\x01\n" +
 	"\x06Mosque\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
-	"\aaddress\x18\x03 \x01(\tR\aaddress\x125\n" +
-	"\beid_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\aeidTime\x12;\n" +
-	"\vjummah_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"\aaddress\x18\x03 \x01(\tR\aaddress\x12\x19\n" +
+	"\beid_time\x18\x04 \x01(\tR\aeidTime\x12\x1f\n" +
+	"\vjummah_time\x18\x05 \x01(\tR\n" +
 	"jummahTime\x12\x10\n" +
 	"\x03lat\x18\x06 \x01(\x01R\x03lat\x12\x10\n" +
-	"\x03lng\x18\a \x01(\x01R\x03lngB$Z\"github.com/inidaname/mosque/protosb\x06proto3"
+	"\x03lng\x18\a \x01(\x01R\x03lngB-Z+github.com/inidaname/mosque_location/protosb\x06proto3"
 
 var (
 	file_types_proto_rawDescOnce sync.Once
@@ -225,18 +224,15 @@ func file_types_proto_rawDescGZIP() []byte {
 
 var file_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_types_proto_goTypes = []any{
-	(*User)(nil),                  // 0: types.User
-	(*Mosque)(nil),                // 1: types.Mosque
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*User)(nil),   // 0: types.User
+	(*Mosque)(nil), // 1: types.Mosque
 }
 var file_types_proto_depIdxs = []int32{
-	2, // 0: types.Mosque.eid_time:type_name -> google.protobuf.Timestamp
-	2, // 1: types.Mosque.jummah_time:type_name -> google.protobuf.Timestamp
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_types_proto_init() }

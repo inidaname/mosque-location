@@ -9,7 +9,6 @@ package protos
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -197,8 +196,8 @@ type CreateMosqueRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Address       string                 `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
-	EidTime       *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
-	JummahTime    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
+	EidTime       string                 `protobuf:"bytes,3,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
+	JummahTime    string                 `protobuf:"bytes,4,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
 	Lat           float64                `protobuf:"fixed64,5,opt,name=lat,proto3" json:"lat,omitempty"`
 	Lng           float64                `protobuf:"fixed64,6,opt,name=lng,proto3" json:"lng,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -249,18 +248,18 @@ func (x *CreateMosqueRequest) GetAddress() string {
 	return ""
 }
 
-func (x *CreateMosqueRequest) GetEidTime() *timestamppb.Timestamp {
+func (x *CreateMosqueRequest) GetEidTime() string {
 	if x != nil {
 		return x.EidTime
 	}
-	return nil
+	return ""
 }
 
-func (x *CreateMosqueRequest) GetJummahTime() *timestamppb.Timestamp {
+func (x *CreateMosqueRequest) GetJummahTime() string {
 	if x != nil {
 		return x.JummahTime
 	}
-	return nil
+	return ""
 }
 
 func (x *CreateMosqueRequest) GetLat() float64 {
@@ -282,8 +281,8 @@ type UpdateMosqueRequest struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Address       string                 `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
-	EidTime       *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
-	JummahTime    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
+	EidTime       string                 `protobuf:"bytes,4,opt,name=eid_time,json=eidTime,proto3" json:"eid_time,omitempty"`
+	JummahTime    string                 `protobuf:"bytes,5,opt,name=jummah_time,json=jummahTime,proto3" json:"jummah_time,omitempty"`
 	Lat           float64                `protobuf:"fixed64,6,opt,name=lat,proto3" json:"lat,omitempty"`
 	Lng           float64                `protobuf:"fixed64,7,opt,name=lng,proto3" json:"lng,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -341,18 +340,18 @@ func (x *UpdateMosqueRequest) GetAddress() string {
 	return ""
 }
 
-func (x *UpdateMosqueRequest) GetEidTime() *timestamppb.Timestamp {
+func (x *UpdateMosqueRequest) GetEidTime() string {
 	if x != nil {
 		return x.EidTime
 	}
-	return nil
+	return ""
 }
 
-func (x *UpdateMosqueRequest) GetJummahTime() *timestamppb.Timestamp {
+func (x *UpdateMosqueRequest) GetJummahTime() string {
 	if x != nil {
 		return x.JummahTime
 	}
-	return nil
+	return ""
 }
 
 func (x *UpdateMosqueRequest) GetLat() float64 {
@@ -463,28 +462,28 @@ var File_mosque_proto protoreflect.FileDescriptor
 
 const file_mosque_proto_rawDesc = "" +
 	"\n" +
-	"\fmosque.proto\x12\x06mosque\x1a\vtypes.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"?\n" +
+	"\fmosque.proto\x12\x06mosque\x1a\vtypes.proto\"?\n" +
 	"\x14CreateMosqueResponse\x12'\n" +
 	"\amosques\x18\x01 \x01(\v2\r.types.MosqueR\amosques\"\x14\n" +
 	"\x12ListMosquesRequest\">\n" +
 	"\x13ListMosquesResponse\x12'\n" +
 	"\amosques\x18\x01 \x03(\v2\r.types.MosqueR\amosques\"&\n" +
 	"\x10GetMosqueRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"\xdb\x01\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"\xa3\x01\n" +
 	"\x13CreateMosqueRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
-	"\aaddress\x18\x02 \x01(\tR\aaddress\x125\n" +
-	"\beid_time\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\aeidTime\x12;\n" +
-	"\vjummah_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"\aaddress\x18\x02 \x01(\tR\aaddress\x12\x19\n" +
+	"\beid_time\x18\x03 \x01(\tR\aeidTime\x12\x1f\n" +
+	"\vjummah_time\x18\x04 \x01(\tR\n" +
 	"jummahTime\x12\x10\n" +
 	"\x03lat\x18\x05 \x01(\x01R\x03lat\x12\x10\n" +
-	"\x03lng\x18\x06 \x01(\x01R\x03lng\"\xeb\x01\n" +
+	"\x03lng\x18\x06 \x01(\x01R\x03lng\"\xb3\x01\n" +
 	"\x13UpdateMosqueRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
-	"\aaddress\x18\x03 \x01(\tR\aaddress\x125\n" +
-	"\beid_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\aeidTime\x12;\n" +
-	"\vjummah_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"\aaddress\x18\x03 \x01(\tR\aaddress\x12\x19\n" +
+	"\beid_time\x18\x04 \x01(\tR\aeidTime\x12\x1f\n" +
+	"\vjummah_time\x18\x05 \x01(\tR\n" +
 	"jummahTime\x12\x10\n" +
 	"\x03lat\x18\x06 \x01(\x01R\x03lat\x12\x10\n" +
 	"\x03lng\x18\a \x01(\x01R\x03lng\"?\n" +
@@ -495,7 +494,7 @@ const file_mosque_proto_rawDesc = "" +
 	"\rMosqueService\x12I\n" +
 	"\fCreateMosque\x12\x1b.mosque.CreateMosqueRequest\x1a\x1c.mosque.CreateMosqueResponse\x12F\n" +
 	"\vListMosques\x12\x1a.mosque.ListMosquesRequest\x1a\x1b.mosque.ListMosquesResponse\x12I\n" +
-	"\fUpdateMosque\x12\x1b.mosque.UpdateMosqueRequest\x1a\x1c.mosque.UpdateMosqueResponseB$Z\"github.com/inidaname/mosque/protosb\x06proto3"
+	"\fUpdateMosque\x12\x1b.mosque.UpdateMosqueRequest\x1a\x1c.mosque.UpdateMosqueResponseB-Z+github.com/inidaname/mosque_location/protosb\x06proto3"
 
 var (
 	file_mosque_proto_rawDescOnce sync.Once
@@ -511,36 +510,31 @@ func file_mosque_proto_rawDescGZIP() []byte {
 
 var file_mosque_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_mosque_proto_goTypes = []any{
-	(*CreateMosqueResponse)(nil),  // 0: mosque.CreateMosqueResponse
-	(*ListMosquesRequest)(nil),    // 1: mosque.ListMosquesRequest
-	(*ListMosquesResponse)(nil),   // 2: mosque.ListMosquesResponse
-	(*GetMosqueRequest)(nil),      // 3: mosque.GetMosqueRequest
-	(*CreateMosqueRequest)(nil),   // 4: mosque.CreateMosqueRequest
-	(*UpdateMosqueRequest)(nil),   // 5: mosque.UpdateMosqueRequest
-	(*UpdateMosqueResponse)(nil),  // 6: mosque.UpdateMosqueResponse
-	(*DeleteMosqueRequest)(nil),   // 7: mosque.DeleteMosqueRequest
-	(*Mosque)(nil),                // 8: types.Mosque
-	(*timestamppb.Timestamp)(nil), // 9: google.protobuf.Timestamp
+	(*CreateMosqueResponse)(nil), // 0: mosque.CreateMosqueResponse
+	(*ListMosquesRequest)(nil),   // 1: mosque.ListMosquesRequest
+	(*ListMosquesResponse)(nil),  // 2: mosque.ListMosquesResponse
+	(*GetMosqueRequest)(nil),     // 3: mosque.GetMosqueRequest
+	(*CreateMosqueRequest)(nil),  // 4: mosque.CreateMosqueRequest
+	(*UpdateMosqueRequest)(nil),  // 5: mosque.UpdateMosqueRequest
+	(*UpdateMosqueResponse)(nil), // 6: mosque.UpdateMosqueResponse
+	(*DeleteMosqueRequest)(nil),  // 7: mosque.DeleteMosqueRequest
+	(*Mosque)(nil),               // 8: types.Mosque
 }
 var file_mosque_proto_depIdxs = []int32{
-	8,  // 0: mosque.CreateMosqueResponse.mosques:type_name -> types.Mosque
-	8,  // 1: mosque.ListMosquesResponse.mosques:type_name -> types.Mosque
-	9,  // 2: mosque.CreateMosqueRequest.eid_time:type_name -> google.protobuf.Timestamp
-	9,  // 3: mosque.CreateMosqueRequest.jummah_time:type_name -> google.protobuf.Timestamp
-	9,  // 4: mosque.UpdateMosqueRequest.eid_time:type_name -> google.protobuf.Timestamp
-	9,  // 5: mosque.UpdateMosqueRequest.jummah_time:type_name -> google.protobuf.Timestamp
-	8,  // 6: mosque.UpdateMosqueResponse.mosques:type_name -> types.Mosque
-	4,  // 7: mosque.MosqueService.CreateMosque:input_type -> mosque.CreateMosqueRequest
-	1,  // 8: mosque.MosqueService.ListMosques:input_type -> mosque.ListMosquesRequest
-	5,  // 9: mosque.MosqueService.UpdateMosque:input_type -> mosque.UpdateMosqueRequest
-	0,  // 10: mosque.MosqueService.CreateMosque:output_type -> mosque.CreateMosqueResponse
-	2,  // 11: mosque.MosqueService.ListMosques:output_type -> mosque.ListMosquesResponse
-	6,  // 12: mosque.MosqueService.UpdateMosque:output_type -> mosque.UpdateMosqueResponse
-	10, // [10:13] is the sub-list for method output_type
-	7,  // [7:10] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	8, // 0: mosque.CreateMosqueResponse.mosques:type_name -> types.Mosque
+	8, // 1: mosque.ListMosquesResponse.mosques:type_name -> types.Mosque
+	8, // 2: mosque.UpdateMosqueResponse.mosques:type_name -> types.Mosque
+	4, // 3: mosque.MosqueService.CreateMosque:input_type -> mosque.CreateMosqueRequest
+	1, // 4: mosque.MosqueService.ListMosques:input_type -> mosque.ListMosquesRequest
+	5, // 5: mosque.MosqueService.UpdateMosque:input_type -> mosque.UpdateMosqueRequest
+	0, // 6: mosque.MosqueService.CreateMosque:output_type -> mosque.CreateMosqueResponse
+	2, // 7: mosque.MosqueService.ListMosques:output_type -> mosque.ListMosquesResponse
+	6, // 8: mosque.MosqueService.UpdateMosque:output_type -> mosque.UpdateMosqueResponse
+	6, // [6:9] is the sub-list for method output_type
+	3, // [3:6] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_mosque_proto_init() }
